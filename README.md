@@ -1,3 +1,3 @@
-# processing-physics
-physics simulation using processing and fisica
+# my processing projects
+physics simulation using processing
 
