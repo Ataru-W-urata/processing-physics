@@ -10,7 +10,7 @@ import org.jbox2d.dynamics.contacts.*;
 Box2DProcessing box2d;
 
 int t = 0;
-int number = 10;
+int number = 2;
 
 // object
 Car[] cars = new Car[number];
@@ -31,9 +31,11 @@ void draw(){
   
   background(255);
   
-  Vec2 pos = car.box.returnPosition();
+  Vec2 pos = cars[0].box.returnPosition();
   surface.display(pos);
-  car.display(pos);
+  for(int i=0; i<number; i++){
+    cars[i].display(pos);
+  }
 }
 
 void mousePressed(){

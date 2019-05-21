@@ -52,11 +52,14 @@ class Box{
     rectMode(PConstants.CENTER);
     pushMatrix();
     translate(width/2, height/2);
-    rotate(-a);
-    fill(10, 100, 200, 50);
-    stroke(100);
-    strokeWeight(1);
-    rect(tra_pos.x, tra_pos.y, w, h);
+    pushMatrix();
+      translate(tra_pos.x, tra_pos.y);
+      rotate(-a);
+      fill(10, 100, 200, 50);
+      stroke(100);
+      strokeWeight(1);
+      rect(0, 0, w, h);
+      popMatrix();
     popMatrix();
   }
   
