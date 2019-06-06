@@ -1,5 +1,6 @@
 class Ant{
   
+  int first_pos;
   int pos;                          // position of ant
   int next = -1;
   IntList notVisitedIndex;          // not visited list
@@ -22,7 +23,8 @@ class Ant{
   
   // function to initialize ant
   void init_ant(){
-    pos = 0;
+    first_pos = (int)random(city_num);
+    pos = first_pos;
     notVisitedIndex.clear();
     for(int i=0; i<city_num; i++){
       notVisitedIndex.append(i);                     // append all city index
@@ -31,7 +33,7 @@ class Ant{
         pherom_delta[i][j] = 0;
       }
     }
-    notVisitedIndex.removeValue(0);                  // we already visit node0
+    notVisitedIndex.removeValue(pos);                  // we already visit node0
     total_dist = 0;
     StillTouring = true;                             
   }
@@ -48,11 +50,11 @@ class Ant{
         pos = next_city_id;                                      // move ant to next city
         notVisitedIndex.removeValue(pos);
       } 
-      // ant have to go back home(city 0)
-      next_city_id = 0;
+      // ant have to go back home(first_pos)
+      next_city_id = first_pos;
       memorize_route(next_city_id);
       total_dist += dist[pos][next_city_id];
-      pos = 0;
+      pos = first_pos;
       distribute_pherom();
       StillTouring = false;                                      // finish tour
     }
