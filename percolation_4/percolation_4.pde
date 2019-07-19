@@ -11,10 +11,10 @@
 Table table;         // save experimantal data into table
 
 Cell[][] cells;
-int num = 40;        // number of cell per each axis
+int num = 200;        // number of cell per each axis
 int cell_w;          // width of each cell
 int cell_h;          // height of each cell
-float prob = 0.5;    // probability
+float prob = 0.58;    // probability
 int percolated;      // 0: not percolated, 1: percolated
 int checkCount;      // how many times did I check?
 int maxCount;        // how many times do I have to check?
@@ -74,7 +74,7 @@ void keyPressed(){
     
     // save CSV
     case ENTER:
-      saveTable(table, "percolate.csv");
+      saveTable(table, num + "_percolate.csv");
       
     // change probability value
     case ' ':
