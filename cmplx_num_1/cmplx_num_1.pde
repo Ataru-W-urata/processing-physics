@@ -1,26 +1,24 @@
-float unit = 10.0;   // 1 unit = 5pix
+float unit = 5.0;   // 1 unit = 5pix
+int num = 10;
 
 ArrayList<cmplx> cmplxs = new ArrayList<cmplx>();
-cmplx c1, c2;
+cmplx[] comp_list = new cmplx[num];
 
 void setup(){
   size(200, 200);
   background(255);
-  c1 = new cmplx(1, 1);
-  c2 = new cmplx(1, 1);
-  cmplxs.add(c1);
-  cmplxs.add(c2);
+  comp_list[0] = new cmplx(1, 1);
+  comp_list[1] = new cmplx(1, 1);
+  cmplxs.add(comp_list[0]);
+  cmplxs.add(comp_list[1]);
 }
 
 void draw(){
   background(255);
-  cmplx c3 = c2.mul_c(c1);
-  cmplx c4 = c3.mul_c(c1);
-  cmplx c5 = c4.mul_c(c1);
-  cmplxs.add(c3);
-  cmplxs.add(c4);
-  cmplxs.add(c5);
-  c3.output();
+  for(int i=2; i<num; i++){
+    comp_list[i] = comp_list[i-1].mul_c(comp_list[0]);
+    cmplxs.add(comp_list[i]);
+  }
   display();
   noLoop();
 }
