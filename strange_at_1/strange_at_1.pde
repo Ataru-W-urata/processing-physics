@@ -9,10 +9,10 @@
 
 //String coF_Alph = "AMTMNQQXUYGA";
 // String coF_Alph = "FIRCDERRPVLD";
-// String coF_Alph = "GLXOESFTTPSV";
+String coF_Alph = "GLXOESFTTPSV";
 // String coF_Alph = "HGUHDPHNSGOH";
 // String coF_Alph = "LUFBBFISGJYS";
-String coF_Alph = "MDVAIDOYHYEA";
+// String coF_Alph = "MDVAIDOYHYEA";
 // String coF_Alph = "QFFVSLMJJGCR";
 // String coF_Alph = "VBWNBDELYHUL";
 // String coF_Alph = "CVQKGHQTPHTE";
@@ -30,7 +30,8 @@ float x, y, xx, yy;
 
 void setup(){
   size(200, 200);
-  background(255);
+  background(5);
+  blendMode(SCREEN);
   
   // alphabet corresponds to number. A=-1.2, B=-1.1, ... , Y=1.1, Z=1.2
   for(int i=0; i<coF.length; i++){
@@ -52,7 +53,7 @@ void draw(){
 void update(){
   xx = coF[0] + coF[1]*x + coF[2]*x*x + coF[3]*x*y + coF[4]*y + coF[5]*y*y;
   yy = coF[6] + coF[7]*x + coF[8]*x*x + coF[9]*x*y + coF[10]*y + coF[11]*y*y;
-  stroke(255, 0, 0);
+  stroke(2, 200, 200);
   strokeWeight(1);
   point(80*xx, -80*yy);
   x = xx;
